@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 extern int setBit(int a, int b);
 extern int clearBit(int a, int b);
 extern int flip(int a, int b);
@@ -10,12 +13,12 @@ int main() {
 	// take the number 5 000000000000000000000000000000101 and set bit 8 from the right (rightmost bit is position 0)
 	//                   000000000000000000000000100000000
 	// (use OR)
-	//                   000000000000000000000000100000101
+	//                   001000000000000000000000000000001
 	// result should be 256 + 5 = 261
 	cout << answer << '\n';
 
 	// for the following tests figure out what the answer should be, make sure your code is right!
-	cout << setBit(17, 9) << '\n'; 
+	cout << setBit(17, 9) << '\n';
 	cout << setBit(1, 31) << '\n';
 
 /* Same as above but this time clear the bit. This can be done by anding with the inverse
