@@ -49,9 +49,6 @@ public:
 		return x*x + y*y + z*z;
 	}
 
-	double mag2() const {
-        return x*x + y*y + z*z;
-	}
 	//hint: if you could write magsq() you would not have to square the magnitude
 	
 	friend std::ostream& operator <<(std::ostream& s, const Vec3d& v) {
@@ -91,8 +88,8 @@ public:
 		Vec3d dpos = pos - b.pos;
 		double r2 = dpos.mag2();
 		double r = sqrt(r2);
-		double amag = G * b.m / r2 ;
-        double ramag = r*amag
+		double amag = G * b.m / r2;
+		double ramag = r*amag;
 		return Vec3d(dpos.x/ramag, dpos.y/ramag, dpos.z/ramag);
 	}
 };
