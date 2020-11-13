@@ -77,7 +77,7 @@ public:
 			 double m,
 			 double x, double y, double z,
 			 double vx, double vy, double vz) : m(m),
-																					pos(x,y,z), v(vx, vy, vz), a() {
+			 pos(x,y,z), v(vx, vy, vz), a() {
 		strncpy(this->name, name, 16);
 	}
 	friend std::ostream& operator <<(std::ostream& s, const Body& b) {
@@ -86,7 +86,7 @@ public:
 	Vec3d gravAccel(const Body& b) {
 		Vec3d dpos = pos - b.pos;
 		double r = dpos.mag();
-		double amag = G * b.m * m / (r*r) / m;
+		double amag = G * b.m / (r*r) ;
 		return Vec3d(dpos.x/r*amag, dpos.y/r*amag, dpos.z/r*amag);
 	}
 };
