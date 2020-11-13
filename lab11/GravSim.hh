@@ -45,8 +45,12 @@ public:
 	}
 
 	// r0 points to the object d0 should return the answer
-	double mag() const {
-		return sqrt(x*x + y*y + z*z);
+	double mag2() const {
+		return x*x + y*y + z*z;
+	}
+
+	double mag2() const {
+        return x*x + y*y + z*z;
 	}
 	//hint: if you could write magsq() you would not have to square the magnitude
 	
@@ -85,9 +89,11 @@ public:
 	}
 	Vec3d gravAccel(const Body& b) {
 		Vec3d dpos = pos - b.pos;
-		double r = dpos.mag();
-		double amag = G * b.m / (r*r) ;
-		return Vec3d(dpos.x/r*amag, dpos.y/r*amag, dpos.z/r*amag);
+		double r2 = dpos.mag2();
+		double r = sqrt(r2);
+		double amag = G * b.m / r2 ;
+        double ramag = r*amag
+		return Vec3d(dpos.x/ramag, dpos.y/ramag, dpos.z/ramag);
 	}
 };
 
